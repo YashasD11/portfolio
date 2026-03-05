@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oral Cancer Detection | Yashas Portfolio</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .project-hero {
+            padding-top: 150px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .project-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .project-details {
+            max-width: 800px;
+            margin: 50px auto;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius-lg);
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-details p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 100px;
+            left: 5%;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+
+<body class="dark-theme">
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="blob blob-1" style="background: #9d50bb"></div>
+        <div class="blob blob-2" style="background: #6e48aa"></div>
+    </div>
+
+    <a href="../index.html" class="back-link fade-in">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Back to Portfolio
+    </a>
+
+    <main class="section-padding">
+        <section class="project-hero fade-in">
+            <h1>Oral Cancer <span class="highlight">Detection</span></h1>
+            <div class="project-tags" style="justify-content: center;">
+                <span>Deep Learning</span>
+                <span>Image Classification</span>
+                <span>TensorFlow</span>
+            </div>
+        </section>
+
+        <section class="project-details fade-in visible">
+            <h2>Oral Cancer Detection: A Deep Learning Approach to Medical Image Analysis</h2>
+            <br>
+            <h3>1. Introduction and Clinical Significance</h3>
+            <p>Oral cancer poses a significant global health burden, and early detection is absolutely critical for
+                improving patient prognosis and survival rates. Traditional screening methods rely heavily on the
+                subjective expertise of clinicians, which can sometimes lead to variability in diagnosis, especially in
+                resource-constrained medical environments. This computer vision project aims to develop a supplementary
+                diagnostic tool by leveraging deep learning techniques to automatically identify potentially malignant
+                oral tissue irregularities from medical images with remarkable precision and consistency.</p>
+
+            <h3>2. Dataset Procurement and Pre-Processing</h3>
+            <p>The foundation of any robust machine learning model is high-quality data. I compiled a diverse dataset of
+                annotated oral cavity images, categorizing them into normal (healthy) tissue and cancerous domains (such
+                as squamous cell carcinomas). Medical image data is inherently noisy and subject to varying lighting
+                conditions. Therefore, I implemented a rigorous preprocessing pipeline using OpenCV and TensorFlow data
+                utilities. This involved standardizing the resolution, applying non-local means denoising to remove
+                artifacts without blurring critical edges, and employing extensive data augmentation strategies (random
+                rotations, horizontal flipping, contrast adjustments) to artificially expand the dataset's variance and
+                prevent model overfitting.</p>
+
+            <h3>3. Convolutional Neural Network Architecture</h3>
+            <p>For the core classification engine, I explored several deep learning architectures. After prototyping
+                custom multi-layer Convolutional Neural Networks (CNNs), I adopted a transfer learning approach to fully
+                utilize the feature extraction capabilities of state-of-the-art models. I integrated a base model (like
+                ResNet50 or EfficientNet) pre-trained on ImageNet. By freezing the early convolutional blocks (which
+                identify elementary features like edges and textures) and fine-tuning the deeper layers specifically on
+                the oral cancer dataset, the network learned to recognize complex, domain-specific pathophysiological
+                patterns (e.g., tumor margins, mucosal abnormalities). The architecture was finalized with a Global
+                Average Pooling layer to minimize spatial dimensions, followed by dense layers with Dropout
+                regularization (set at 0.5) to further enforce model robustness, culminating in a sigmoid output neuron
+                for binary classification.</p>
+
+            <h3>4. Model Evaluation and Integration</h3>
+            <p>To evaluate the model effectively, I strictly isolated a testing subset of images. The model achieved a
+                highly commendable validation accuracy, but more importantly, it optimized for high recall (sensitivity)
+                — a vital metric in medical diagnostics to minimize false negatives. I comprehensively analyzed the
+                model's behavior using Precision-Recall curves, Confusion Matrices, and ROC AUC metrics. Furthermore, to
+                provide interpretability for medical professionals, I implemented Class Activation Mapping (Grad-CAM),
+                which generates heatmaps visually highlighting the exact regions of the oral cavity image that the
+                neural network focused on to make its predictive diagnosis. This transparency bridges the gap between
+                the "black box" AI model and clinical trust. Overall, this project demonstrates the powerful capability
+                of scalable TensorFlow-based computer vision systems in augmenting human expertise within the sensitive
+                medical diagnostics field.</p>
+
+            <div class="action-buttons">
+                <a href="https://github.com/YashasD11/oral_cancer_detection.git" target="_blank" class="btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        style="margin-right: 8px; vertical-align: text-bottom;">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                        </path>
+                    </svg>
+                    View Repository
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-effect">
+        <div class="footer-content">
+            <p>&copy; 2026 Yashas. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="../script.js"></script>
+</body>
+
+</html>

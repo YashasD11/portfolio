@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Segmentation | Yashas Portfolio</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .project-hero {
+            padding-top: 150px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .project-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .project-details {
+            max-width: 800px;
+            margin: 50px auto;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius-lg);
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-details p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 100px;
+            left: 5%;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+
+<body class="dark-theme">
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="blob blob-1" style="background: #11998e"></div>
+        <div class="blob blob-2" style="background: #38ef7d"></div>
+    </div>
+
+    <a href="../index.html" class="back-link fade-in">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Back to Portfolio
+    </a>
+
+    <main class="section-padding">
+        <section class="project-hero fade-in">
+            <h1>Customer <span class="highlight">Segmentation</span></h1>
+            <div class="project-tags" style="justify-content: center;">
+                <span>K-Means</span>
+                <span>Clustering</span>
+                <span>Unsupervised Learning</span>
+                <span>Data Science</span>
+            </div>
+        </section>
+
+        <section class="project-details fade-in visible">
+            <h2>Mall Customer Segmentation: Unsupervised Machine Learning</h2>
+            <br>
+            <h3>1. Business Context and Goal</h3>
+            <p>In modern retail and e-commerce, generic marketing strategies are highly inefficient. Understanding
+                consumer behavior is paramount for businesses seeking to optimize their marketing algorithms,
+                personalize product recommendations, and ultimately drive revenue. This project was developed to provide
+                actionable business intelligence by segmenting a diverse mall customer base into distinct, homogeneous
+                groups utilizing unsupervised machine learning algorithms. The ultimate goal was to identify lucrative
+                target demographics based on purchasing behavior.</p>
+
+            <h3>2. Data Preparation and Dimensionality</h3>
+            <p>The input dataset consisted of customer identifiers, demographic information (age, gender), annual income
+                metrics, and a calculated "spending score" spanning from 1-100 denoting purchasing behavior and loyalty.
+                The preparatory data science phase involved standardizing these numerical variables so that algorithms
+                reliant on distance metrics (like Euclidean distance) would not be disproportionately skewed by the
+                scale differences between income (in thousands of dollars) and spending score (a 1-100 scale). Extensive
+                exploratory data analysis (EDA) using Seaborn and Matplotlib visualization libraries revealed key
+                underlying distributions and preliminary natural grouping tendencies within the raw multi-dimensional
+                data.</p>
+
+            <h3>3. Clustering Algorithms and Optimization</h3>
+            <p>The core of this project centered on implementing the K-Means clustering algorithm. The primary challenge
+                in unsupervised learning is determining the optimal number of clusters ($k$) without predefined labels.
+                To solve this, I employed the Elbow Method, plotting the Within-Cluster Sum of Squares (WCSS) against
+                various $k$ values to find the mathematical inflection point. This was cross-validated using the
+                Silhouette Score method, measuring the cohesion and separation of the clusters to ensure statistical
+                validity. The analysis conclusively indicated that grouping the customers into 5 distinct profiles
+                yielded the most statistically sound separation.</p>
+
+            <h3>4. Interpretation and Strategic Actionability</h3>
+            <p>Once the K-Means algorithm successfully segmented the data into 5 clusters, the final and most crucial
+                phase involved interpreting these mathematical groups into actionable business personas. The clusters
+                clearly defined segments such as "High Income / Low Spenders" (a cautious group requiring targeted
+                reassurance strategies), "Low Income / High Spenders" (a highly loyal but financially constrained
+                demographic), and the highly coveted "High Income / High Spenders" target market. I visualized these
+                clusters in 2D and 3D scatter plots. These distinct profiles enable marketing teams to transition from
+                mass-email campaigns to highly focused, data-driven promotional funnels, significantly increasing
+                conversion rates and Return on Investment (ROI).</p>
+
+            <div class="action-buttons">
+                <a href="https://github.com/YashasD11/Mall_Customer_Segmentation.git" target="_blank"
+                    class="btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        style="margin-right: 8px; vertical-align: text-bottom;">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                        </path>
+                    </svg>
+                    View Repository
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-effect">
+        <div class="footer-content">
+            <p>&copy; 2026 Yashas. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="../script.js"></script>
+</body>
+
+</html>

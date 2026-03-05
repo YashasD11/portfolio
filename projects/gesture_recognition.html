@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gesture Recognition | Yashas Portfolio</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .project-hero {
+            padding-top: 150px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .project-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .project-details {
+            max-width: 800px;
+            margin: 50px auto;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius-lg);
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-details p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 100px;
+            left: 5%;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+
+<body class="dark-theme">
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="blob blob-1" style="background: #4E65FF"></div>
+        <div class="blob blob-2" style="background: #92EFFD"></div>
+    </div>
+
+    <a href="../index.html" class="back-link fade-in">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Back to Portfolio
+    </a>
+
+    <main class="section-padding">
+        <section class="project-hero fade-in">
+            <h1>Gesture <span class="highlight">Recognition</span></h1>
+            <div class="project-tags" style="justify-content: center;">
+                <span>Deep Learning</span>
+                <span>OpenCV</span>
+                <span>Computer Vision</span>
+                <span>TensorFlow</span>
+            </div>
+        </section>
+
+        <section class="project-details fade-in visible">
+            <h2>Hand Gesture Recognition: Real-time CNN Implementation</h2>
+            <br>
+            <h3>1. Project Vision and Application</h3>
+            <p>Human-Computer Interaction (HCI) is rapidly evolving beyond traditional peripherals like keyboards and
+                mice, moving towards more intuitive, contactless interfaces. This project focuses on developing a
+                robust, real-time hand gesture recognition system. The primary goal is to interpret dynamic hand
+                movements and static signs captured via a standard webcam, translating them into actionable computer
+                commands. This technology has profound applications in accessibility tools for the hearing-impaired,
+                touchless navigation systems in sterile environments, and immersive gaming experiences.</p>
+
+            <h3>2. Computer Vision and Preprocessing Framework</h3>
+            <p>The system relies heavily on computer vision techniques implemented via the OpenCV library in Python.
+                Real-time video frames are captured and immediately subjected to a multi-stage preprocessing pipeline.
+                To ensure the neural network receives consistent and distinct features regardless of environmental
+                lighting, I implemented background subtraction algorithms and skin-color segmentation using HSV color
+                space thresholds. The segmented hand regions were then subjected to contour detection to isolate the
+                hand's geometry. Finally, the bounding box containing the hand was cropped, converted to grayscale to
+                reduce computational load, and resized to a standardized uniform dimension suitable for neural network
+                ingestion.</p>
+
+            <h3>3. Deep Learning Architecture</h3>
+            <p>To accurately classify the complex spatial hierarchies inherent in hand gestures, a Convolutional Neural
+                Network (CNN) was architected from scratch using TensorFlow and Keras. The network consists of
+                sequential convolutional layers paired with Max Pooling operations to extract hierarchical features—from
+                simple edges and curves in the shallow layers to complete hand shapes in the deeper layers. The
+                extracted features were flattened and passed through densely connected layers. To combat overfitting,
+                particularly important given the variability in human hand shapes, strict Dropout layers were
+                introduced. The model was trained on a comprehensive custom dataset of thousands of augmented gesture
+                images representing diverse classifications (e.g., open palm, fist, specific finger counts).</p>
+
+            <h3>4. Interfacing and Real-Time Performance</h3>
+            <p>Once trained, the lightweight CNN model was saved in an H5 format and integrated back into the OpenCV
+                live video loop for real-time inference. The system successfully processes frames at over 30 FPS on
+                standard consumer hardware, providing instantaneous feedback. The predicted gesture is visually
+                superimposed on the live video feed. By mapping specific neural network predictions to operating system
+                commands (using libraries like `pyautogui`), the system effectively demonstrated a proof-of-concept for
+                controlling media players and presentation slides purely through mid-air hand gestures. This project
+                underscored the practical synergy between low-level image processing and high-level deep learning
+                inference.</p>
+
+            <div class="action-buttons">
+                <a href="https://github.com/YashasD11/hand-gesture-recognition-cnn.git" target="_blank"
+                    class="btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        style="margin-right: 8px; vertical-align: text-bottom;">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                        </path>
+                    </svg>
+                    View Repository
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-effect">
+        <div class="footer-content">
+            <p>&copy; 2026 Yashas. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="../script.js"></script>
+</body>
+
+</html>

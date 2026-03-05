@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analytics | Yashas Portfolio</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .project-hero {
+            padding-top: 150px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .project-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .project-details {
+            max-width: 800px;
+            margin: 50px auto;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius-lg);
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-details p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 100px;
+            left: 5%;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+
+<body class="dark-theme">
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="blob blob-1" style="background: #fc4a1a"></div>
+        <div class="blob blob-2" style="background: #f7b733"></div>
+    </div>
+
+    <a href="../index.html" class="back-link fade-in">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Back to Portfolio
+    </a>
+
+    <main class="section-padding">
+        <section class="project-hero fade-in">
+            <h1>Sentiment <span class="highlight">Analytics</span></h1>
+            <div class="project-tags" style="justify-content: center;">
+                <span>NLP</span>
+                <span>Python</span>
+                <span>Flask</span>
+                <span>Transformers</span>
+            </div>
+        </section>
+
+        <section class="project-details fade-in visible">
+            <h2>Customer Experience Sentiment Analytics: Natural Language Processing</h2>
+            <br>
+            <h3>1. The Value of Unstructured Data</h3>
+            <p>In the digital age, customer feedback is ubiquitous, manifesting as reviews, social media comments, and
+                support tickets. This textual data is a goldmine of consumer insight, but its unstructured nature makes
+                traditional quantitative analysis impossible. This project deploys advanced Natural Language Processing
+                (NLP) techniques to systematically extract, quantify, and analyze the subjective emotions contained
+                within massive volumes of textual customer feedback. The overarching goal is to provide enterprise
+                management with real-time sentiment dashboards, allowing them to proactively identify service friction
+                points and capitalize on positive brand engagement.</p>
+
+            <h3>2. Text Preprocessing and Vectorization</h3>
+            <p>Uncooked text data is extremely messy. To prepare the corpora for machine learning algorithms, I
+                constructed a rigorous NLP preprocessing pipeline utilizing the Natural Language Toolkit (NLTK) and
+                SpaCy libraries. This pipeline systematically executed lowercasing, punctuation and special character
+                removal, and the filtration of uninformative 'stop words'. crucial grammatical normalization was
+                achieved through lemmatization, reducing words to their base dictionary form (e.g., converting "running"
+                and "ran" to "run"). Following this linguistic normalization, the textual data was transformed into
+                machine-readable numerical matrices using the Term Frequency-Inverse Document Frequency (TF-IDF)
+                vectorization technique, ensuring that domain-specific keywords carried appropriate statistical weight
+                over common vocabulary.</p>
+
+            <h3>3. Transformer Models and Classification</h3>
+            <p>While traditional algorithms (like Naive Bayes or Support Vector Machines) establish a strong analytical
+                baseline, discerning the nuanced context, sarcasm, and complex syntax of human speech requires deeper
+                architecture. To achieve state-of-the-art sentiment classification accuracy, I integrated pre-trained
+                Transformer models accessed via the HuggingFace `transformers` library—specifically leveraging BERT
+                (Bidirectional Encoder Representations from Transformers). By fine-tuning BERT on the specific retail
+                feedback dataset, the model developed a profound contextual understanding of the vocabulary, accurately
+                classifying lengthy and convoluted reviews into distinct categories: Positive, Negative, and Neutral.
+                The bidirectional nature of BERT was instrumental in understanding the sentiment of a word based on its
+                entire surrounding sentence context.</p>
+
+            <h3>4. Deployment and Dashboarding</h3>
+            <p>Analytic models provide no value if they remain isolated in Jupyter notebooks. Therefore, I packaged the
+                optimized NLP inference engine into a lightweight Python web application utilizing the Flask framework.
+                This backend exposes a REST API that receives raw text input, processes it through the loaded
+                vectorizers and models, and returns a JSON sentiment score. This data is then consumed by a frontend
+                dashboard, summarizing the aggregate sentiment of thousands of recent reviews in an easy-to-digest
+                visual format. This end-to-end pipeline not only demonstrates advanced machine learning competency but
+                also highlights robust software engineering implementation skills.</p>
+
+            <div class="action-buttons">
+                <a href="https://github.com/YashasD11/customer-experience-sentiment-analytics.git" target="_blank"
+                    class="btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        style="margin-right: 8px; vertical-align: text-bottom;">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                        </path>
+                    </svg>
+                    View Repository
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-effect">
+        <div class="footer-content">
+            <p>&copy; 2026 Yashas. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="../script.js"></script>
+</body>
+
+</html>

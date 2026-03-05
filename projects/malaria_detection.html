@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malaria Detection | Yashas Portfolio</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .project-hero {
+            padding-top: 150px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .project-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .project-details {
+            max-width: 800px;
+            margin: 50px auto;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius-lg);
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-details p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 100px;
+            left: 5%;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+
+<body class="dark-theme">
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="blob blob-1" style="background: #eb3349"></div>
+        <div class="blob blob-2" style="background: #f45c43"></div>
+    </div>
+
+    <a href="../index.html" class="back-link fade-in">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Back to Portfolio
+    </a>
+
+    <main class="section-padding">
+        <section class="project-hero fade-in">
+            <h1>Malaria <span class="highlight">Detection</span></h1>
+            <div class="project-tags" style="justify-content: center;">
+                <span>Deep Learning</span>
+                <span>CNN</span>
+                <span>Computer Vision</span>
+                <span>TensorFlow</span>
+            </div>
+        </section>
+
+        <section class="project-details fade-in visible">
+            <h2>Malaria Detection: Automated Pathological Diagnostics via Deep Learning</h2>
+            <br>
+            <h3>1. The Global Health Challenge</h3>
+            <p>Malaria remains one of the world's most devastating infectious diseases, disproportionately affecting
+                developing regions. The gold standard for malaria diagnosis relies on the microscopic examination of
+                stained blood smears by trained parasitologists—a process that is not only labor-intensive and slow but
+                also highly susceptible to human error and fatigue, particularly in areas with a scarcity of medical
+                professionals. This project develops an automated, robust computer vision diagnostics system capable of
+                rapidly and accurately identifying parasitized red blood cells, aiming to significantly expedite the
+                diagnostic pipeline and scale screening efforts globally.</p>
+
+            <h3>2. Medical Image Processing</h3>
+            <p>The foundation of the predictive model was established on a publicly available, historically validated
+                dataset containing tens of thousands of microscopic images of both healthy (uninfected) and parasitized
+                (Plasmodium-infected) cellular samples. Medical imaging requires pristine preprocessing. Using the
+                OpenCV library, I implemented color-space transformations to isolate the characteristic deep-stain
+                chrominance of the malaria parasites. The images were subsequently standardized to a uniform resolution
+                to maintain geometric consistency. Given the critical nature of medical diagnostics, I employed severe
+                geometric augmentations during the training phase (including random rotations, shears, and zoom
+                iterations) to ensure the model learned the fundamental pathological features rather than memorizing
+                orientation anomalies present in the training data.</p>
+
+            <h3>3. Deep Convolutional Architecture</h3>
+            <p>To differentiate between the subtle visual anomalies of an infected cell and a healthy one, I designed a
+                specialized Convolutional Neural Network (CNN) using the TensorFlow and Keras frameworks. The
+                architecture featured multiple alternating Convolutional and MaxPooling blocks designed to
+                hierarchically extract localized spatial features—from basic cellular boundaries to the intricate
+                morphological structures of the malaria trophozoites. To mitigate the risk of the model over-optimizing
+                on the training data (overfitting), aggressive Dropout layers were interspersed within the fully
+                connected dense layers, forcing the network to distribute its learned weight dependencies.</p>
+
+            <h3>4. Diagnostic Efficacy and Impact</h3>
+            <p>The trained CNN achieved high evaluation metrics on the isolated test set, excelling not only in overall
+                accuracy but heavily prioritizing specialized medical metrics such as sensitivity (True Positive Rate)
+                and specificity (True Negative Rate). The model demonstrated a formidable ability to minimize false
+                negatives, ensuring that infected individuals are not inadvertently cleared. By integrating this
+                inference model into a lightweight interface, it acts as a reliable secondary screening tool for
+                diagnosticians, accelerating the review process of blood smears and demonstrating the profound potential
+                of applied AI in life-saving public health administration.</p>
+
+            <div class="action-buttons">
+                <a href="https://github.com/yashas/Malaria-Detection" target="_blank" class="btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        style="margin-right: 8px; vertical-align: text-bottom;">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                        </path>
+                    </svg>
+                    View Repository
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-effect">
+        <div class="footer-content">
+            <p>&copy; 2026 Yashas. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="../script.js"></script>
+</body>
+
+</html>
